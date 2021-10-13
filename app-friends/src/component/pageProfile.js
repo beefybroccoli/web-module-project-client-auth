@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { link } from "react-router-dom";
 import { ContextObject } from "../App";
 import CompDisplayPrivateData from "./compDisplayPrivateData";
+import cb_serviceGetFriends from "./serviceGetFriends";
 
 const Container = styled.div`
   border: 1px solid black;
@@ -11,8 +12,23 @@ const Container = styled.div`
   padding: 5px;
 `;
 const PageProfile = (props) => {
-  const { stateArray, set_stateArray, stateNewFriend, set_stateNewFriend } =
-    useContext(ContextObject);
+  const {
+    stateArray,
+    set_stateArray,
+    stateNewFriend,
+    stateToken,
+    set_stateNewFriend,
+  } = useContext(ContextObject);
+
+  useEffect(() => {
+    const promise = cb_serviceGetFriends(stateToken).then((res) => {
+      console.log("res = ", res);
+      set_stateArray([...stateArray,...res.data]);
+    });
+  }, []);
+
+  // useEffect(()=>{},[])
+
   return (
     <Container>
       <h2>PageProfile.js</h2>

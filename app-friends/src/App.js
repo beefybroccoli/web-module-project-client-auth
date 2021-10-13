@@ -38,6 +38,7 @@ function App() {
           set_stateArray,
           stateNewFriend,
           set_stateNewFriend,
+          stateToken,
           set_stateToken,
         }}
       >
