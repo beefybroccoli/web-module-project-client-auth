@@ -1,9 +1,11 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, createContext } from "react";
 import { Switch, Route } from "react-router-dom";
 import PageHome from "./component/pageHome";
 import PageProfile from "./component/pageProfile";
 import Page404 from "./component/page404";
+
+export const ContextObject = createContext();
 function App() {
   const [stateArray, set_stateArray] = useState([]);
   const [stateNewFriend, set_stateNewFriend] = useState(null);
@@ -21,23 +23,26 @@ function App() {
       <header>
         <h1>User Authentication With Token</h1>
       </header>
-      <Switch>
-        <Route exact path="/">
-          <PageHome
-            stateArray={stateArray}
-            set_stateNewFriend={set_stateNewFriend}
-          />
-        </Route>
-        <Route path="/profile">
-          <PageProfile
-            stateArray={stateArray}
-            set_stateNewFriend={set_stateNewFriend}
-          />
-        </Route>
-        <Route>
-          <Page404 />
-        </Route>
-      </Switch>
+      <ContextObject.Provider
+        value={{
+          stateArray,
+          set_stateArray,
+          stateNewFriend,
+          set_stateNewFriend,
+        }}
+      >
+        <Switch>
+          <Route exact path="/">
+            <PageHome />
+          </Route>
+          <Route path="/profile">
+            <PageProfile />
+          </Route>
+          <Route>
+            <Page404 />
+          </Route>
+        </Switch>
+      </ContextObject.Provider>
     </div>
   );
 }
