@@ -8,12 +8,12 @@ const Constainer = styled.div`
   margin: 5px;
   padding: 5px;
 `;
-const PageHome = (props) => {
+const PageProfile = (props) => {
   return (
     <Constainer>
-      <h2>PageHome.js</h2>
+      <h2>PageProfile.js</h2>
     </Constainer>
   );
 };
 
-export default PageHome;
+export default PageProfile;
