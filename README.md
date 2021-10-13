@@ -71,9 +71,13 @@ Topics:
 
 /////////////////////////////////////////////////////////
 
-milestone-1
-  _working form
-  _able to add user to a state
-milestone-2
-  _context API implemented
-  _basic routing setup
+### milestone-1
+  * working form
+  * able to add user to a state
+### milestone-2
+  * context API implemented
+  * basic routing setup
+
+### milestone-3
+  * compFormLogin added
+  * (ready for private routing)
