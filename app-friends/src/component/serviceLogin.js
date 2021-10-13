@@ -9,11 +9,11 @@ import { API_URL_POST_Login } from "../constant/constant";
  * @param {*} credential = {username:text, password:text}
  */
 const cb_serviceLogin = (credential) => {
-  console.log("serviceLogin.js - credential = ", credential);
-  console.log(
-    "serviceLogin.js - con.API_URL_POST_Login = ",
-    API_URL_POST_Login
-  );
+  //   console.log("serviceLogin.js - credential = ", credential);
+  //   console.log(
+  //     "serviceLogin.js - con.API_URL_POST_Login = ",
+  //     API_URL_POST_Login
+  //   );
   return axios.post(API_URL_POST_Login, credential);
 };
 

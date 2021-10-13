@@ -26,14 +26,13 @@ const CompFormLogin = (props) => {
   };
 
   const cb_onSubmit = (event) => {
-    console.log("compFormLogin.js - cb_onSubmit");
+    // console.log("compFormLogin.js - cb_onSubmit");
     event.preventDefault();
     set_stateForm(initialState);
     const promise = cb_serviceLogin(stateForm);
     promise
       .then((res) => {
-        console.log("res.data.payload = ", res.data.payload);
-        // props.set_stateToken(res.data.payload);
+        // console.log("res.data.payload = ", res.data.payload);
         set_stateToken(res.data.payload);
       })
       .catch((error) => {

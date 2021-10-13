@@ -29,7 +29,7 @@ const PageProfile = (props) => {
     // });
 
     cb_serviceGetFriendById(stateToken, "3").then((res) => {
-      console.log("res by id - res.data ", res.data);
+      // console.log("res by id - res.data ", res.data);
       set_stateArray([...stateArray, res.data]);
     });
   }, []);

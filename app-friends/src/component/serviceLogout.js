@@ -1,8 +1,12 @@
 import axios from "axios";
 import * as con from "../constant/constant";
 
-const cb_serviceLogout = () => {};
-
+const cb_serviceLogout = (token) => {
+  return axios
+    .create({ baseURL: con.API_URL, headers: { authorization: token } })
+    .post("/logout");
+};
+export default cb_serviceLogout;
 /*
 
 const axiosWithAuth = () => {

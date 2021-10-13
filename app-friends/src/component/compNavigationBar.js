@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import { NavLink, useHistory } from "react-router-dom";
 import { ContextObject } from "../App";
+import cb_serviceLogout from "./serviceLogout";
 
 const Container = styled.div`
   border: 1px solid black;
@@ -13,13 +14,18 @@ const Container = styled.div`
   justify-content: space-evenly;
 `;
 const CompNavigationBar = (props) => {
-  const { stateToken } = useContext(ContextObject);
-  const cb_onClick = (event) => {};
+  const { stateToken, set_stateToken } = useContext(ContextObject);
+  const cb_onClick = (event) => {
+    cb_serviceLogout(stateToken).then((res) => {
+      console.log("compNavigationBar - res = ", res);
+    });
+  };
 
   return (
     <Container>
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/profile">Profile</NavLink>
+
+      {stateToken ? <NavLink to="/profile">Profile</NavLink> : null}
       {stateToken ? <button onClick={cb_onClick}>Log Out</button> : null}
     </Container>
   );
