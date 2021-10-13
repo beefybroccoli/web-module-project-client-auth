@@ -1,8 +1,9 @@
-import logo from "./logo.svg";
 import "./App.css";
+import React, { useHistory } from "react";
 import { Switch, Route } from "react-router-dom";
 import PageHome from "./component/pageHome";
 import PageProfile from "./component/pageProfile";
+import Page404 from "./component/page404";
 function App() {
   return (
     <div className="App">
@@ -16,15 +17,8 @@ function App() {
         <Route path="/profile">
           <PageProfile />
         </Route>
-        <Route
-          render={() => {
-            return (
-              <div>
-                <h2>Page 404</h2>
-              </div>
-            );
-          }}
-        />
+        <Page404 />
+        <Route />
       </Switch>
     </div>
   );
