@@ -4,6 +4,7 @@ import { Switch, Route, useHistory } from "react-router-dom";
 import PageHome from "./component/pageHome";
 import PageProfile from "./component/pageProfile";
 import Page404 from "./component/page404";
+import CompNavigationBar from "./component/compNavigationBar";
 
 export const ContextObject = createContext();
 function App() {
@@ -28,10 +29,6 @@ function App() {
 
   return (
     <div className="App">
-      <header>
-        <h1>User Authentication With Token</h1>
-        <p>stateToken = {stateToken}</p>
-      </header>
       <ContextObject.Provider
         value={{
           stateArray,
@@ -42,6 +39,12 @@ function App() {
           set_stateToken,
         }}
       >
+        <header>
+          <h1>User Authentication With Token</h1>
+          <p>stateToken = {stateToken}</p>
+          <CompNavigationBar />
+        </header>
+
         <Switch>
           <Route exact path="/">
             <PageHome />
