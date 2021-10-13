@@ -1,7 +1,5 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import { link } from "react-router-dom";
 import { ContextObject } from "../App";
 import cb_serviceAddFriend from "./serviceAddFriend";
 
@@ -84,7 +82,7 @@ const CompFormAdd = (props) => {
             <option value="user">user</option>
           </select>{" "}
         </label>
-        <button>Submit</button>
+        <button>Add Friend</button>
       </form>
     </Container>
   );

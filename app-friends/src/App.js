@@ -41,7 +41,7 @@ function App() {
       >
         <header>
           <h1>User Authentication With Token</h1>
-          <p>stateToken = {stateToken}</p>
+          <p>stateToken = {stateToken !== "" ? "(has token)" : "null"}</p>
           <CompNavigationBar />
         </header>
 

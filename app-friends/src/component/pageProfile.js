@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from "react";
 import styled from "styled-components";
-import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { ContextObject } from "../App";
 import CompDisplayPrivateData from "./compDisplayPrivateData";
@@ -14,26 +13,26 @@ const Container = styled.div`
   padding: 5px;
 `;
 const PageProfile = (props) => {
-  const {
-    stateArray,
-    set_stateArray,
-    stateNewFriend,
-    stateToken,
-    set_stateNewFriend,
-  } = useContext(ContextObject);
+  const { stateArray, set_stateArray, stateToken } = useContext(ContextObject);
   const history = useHistory();
 
   useEffect(() => {
-    //working
-    // cb_serviceGetFriends(stateToken).then((res) => {
-    //   set_stateArray([...stateArray, ...res.data]);
-    // });
+    // working;
+    cb_serviceGetFriends(stateToken).then((res) => {
+      set_stateArray([...stateArray, ...res.data]);
+    });
 
     cb_serviceGetFriendById(stateToken, "3").then((res) => {
       // console.log("res by id - res.data ", res.data);
       set_stateArray([...stateArray, res.data]);
     });
   }, []);
+
+  useEffect(() => {
+    if (stateToken === "") {
+      history.push("/");
+    }
+  }, [stateToken]);
 
   return (
     <Container>

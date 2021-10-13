@@ -1,19 +1,7 @@
 import axios from "axios";
 import { API_URL_POST_Login } from "../constant/constant";
 
-/**
- * if the call is successful
- * .....get token and store token in localStorage
- * if the call fail
- * .....display error message
- * @param {*} credential = {username:text, password:text}
- */
 const cb_serviceLogin = (credential) => {
-  //   console.log("serviceLogin.js - credential = ", credential);
-  //   console.log(
-  //     "serviceLogin.js - con.API_URL_POST_Login = ",
-  //     API_URL_POST_Login
-  //   );
   return axios.post(API_URL_POST_Login, credential);
 };
 
