@@ -81,3 +81,16 @@ Topics:
 ### milestone-3
   * compFormLogin added
   * (ready for private routing)
+
+### milestone-4
+  * post 
+  * * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'lambda', password: 'school' }`
+  * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
+  * **[GET]** to `/api/friends`: returns the list of friends.
+  * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
+  * **[POST]** * to `/api/friends`: Adds in a new friend.
+
+### milestone-5
+  * protect all private routes
+  *  conditional render by role
+
