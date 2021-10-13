@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { link } from "react-router-dom";
 import CompForm from "./compForm";
+import PageProfile from "./pageProfile";
 
 const Constainer = styled.div`
   border: 1px solid black;
@@ -14,7 +15,11 @@ const PageHome = (props) => {
     <Constainer>
       <h2>PageHome.js</h2>
       <main>
-        <CompForm />
+        <PageProfile
+          stateArray={props.stateArray}
+          set_stateNewFriend={props.set_stateNewFriend}
+        />
+        <CompForm set_stateNewFriend={props.set_stateNewFriend} />
       </main>
     </Constainer>
   );
