@@ -17,8 +17,9 @@ function App() {
         <Route path="/profile">
           <PageProfile />
         </Route>
-        <Page404 />
-        <Route />
+        <Route>
+          <Page404 />
+        </Route>
       </Switch>
     </div>
   );
