@@ -3,7 +3,7 @@ import styled from "styled-components";
 import axios from "axios";
 import { link } from "react-router-dom";
 import { ContextObject } from "../App";
-
+import cb_serviceAddFriend from "./serviceAddFriend";
 
 const Container = styled.div`
   border: 1px solid black;
@@ -19,7 +19,7 @@ const CompFormAdd = (props) => {
     role: "none",
   };
   const [stateForm, set_stateForm] = useState(initialState);
-  const { set_stateNewFriend } = useContext(ContextObject);
+  const { set_stateNewFriend, stateToken } = useContext(ContextObject);
 
   const cb_onChange = (event) => {
     set_stateForm({ ...stateForm, [event.target.name]: event.target.value });
@@ -29,6 +29,9 @@ const CompFormAdd = (props) => {
     event.preventDefault();
     set_stateNewFriend(stateForm);
     set_stateForm(initialState);
+    cb_serviceAddFriend(stateToken, stateForm)
+      .then(() => {})
+      .catch((error) => {});
   };
 
   return (

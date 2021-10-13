@@ -6,6 +6,7 @@ import { ContextObject } from "../App";
 import CompDisplayPrivateData from "./compDisplayPrivateData";
 import cb_serviceGetFriends from "./serviceGetFriends";
 import cb_serviceGetFriendById from "./serviceGetFriendById";
+import CompFormAdd from "./compFormAdd";
 
 const Container = styled.div`
   border: 1px solid black;
@@ -34,16 +35,13 @@ const PageProfile = (props) => {
     });
   }, []);
 
-  if (stateToken !== "") {
-    return (
-      <Container>
-        <h2>PageProfile.js</h2>
-        <CompDisplayPrivateData />
-      </Container>
-    );
-  } else {
-    history.push("/");
-  }
+  return (
+    <Container>
+      <h2>PageProfile.js</h2>
+      <CompFormAdd />
+      <CompDisplayPrivateData />
+    </Container>
+  );
 };
 
 export default PageProfile;

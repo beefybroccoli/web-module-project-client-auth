@@ -14,11 +14,14 @@ const Container = styled.div`
   justify-content: space-evenly;
 `;
 const CompNavigationBar = (props) => {
+  const history = useHistory();
   const { stateToken, set_stateToken } = useContext(ContextObject);
   const cb_onClick = (event) => {
     cb_serviceLogout(stateToken).then((res) => {
-      console.log("compNavigationBar - res = ", res);
+      // console.log("compNavigationBar - res = ", res);
+      set_stateToken("");
     });
+    history.push("/");
   };
 
   return (

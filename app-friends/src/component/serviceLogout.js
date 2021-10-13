@@ -4,7 +4,7 @@ import * as con from "../constant/constant";
 const cb_serviceLogout = (token) => {
   return axios
     .create({ baseURL: con.API_URL, headers: { authorization: token } })
-    .post("/logout");
+    .post("/api/logout");
 };
 export default cb_serviceLogout;
 /*
