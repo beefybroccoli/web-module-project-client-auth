@@ -13,15 +13,18 @@ const Container = styled.div`
   padding: 5px;
 `;
 const PageHome = (props) => {
-  const { stateArray, set_stateArray, stateNewFriend, set_stateNewFriend } =
-    useContext(ContextObject);
+  const {
+    stateArray,
+    set_stateArray,
+    stateNewFriend,
+    set_stateNewFriend,
+    set_stateToken,
+  } = useContext(ContextObject);
   return (
     <Container>
       <h2>PageHome.js</h2>
       <main>
         <CompFormLogin />
-        {/* <CompFormAdd /> */}
-        {/* <PageProfile /> */}
       </main>
     </Container>
   );

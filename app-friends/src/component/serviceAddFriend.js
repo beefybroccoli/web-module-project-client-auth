@@ -1,11 +1,13 @@
 import axios from "axios";
-import { API_URL_POST_Login } from "../constant/constant";
+import { API_URL } from "../constant/constant";
 
-const cb_serviceLogin = (credential) => {
-  return axios.post(API_URL_POST_Login, credential);
+const cb_serviceAddFriend = (token, newFriend) => {
+  return axios
+    .create({ baseURL: API_URL, headers: { authorization: token } })
+    .post(`/api/friends/`, newFriend);
 };
 
-export default cb_serviceLogin;
+export default cb_serviceAddFriend;
 
 /*
     axios.post("http://localhost:5000/api/login", this.state.credentials)

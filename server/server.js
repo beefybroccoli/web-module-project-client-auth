@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const port = 5000;
+const port = 5005;
 const app = express();
 const token =
   "esfeyJ1c2VySWQiOiJiMDhmODZhZi0zNWRhLTQ4ZjItOGZhYi1jZWYzOTA0NUIhkufemQifQ";
@@ -72,6 +72,7 @@ function authenticator(req, res, next) {
 
 app.post("/api/login", (req, res) => {
   const { username, password } = req.body;
+  console.log("req.body = ", req.body);
   if (username === "lambda" && password === "school") {
     req.loggedIn = true;
     res.status(200).json({

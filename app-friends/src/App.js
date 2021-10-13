@@ -1,14 +1,17 @@
 import "./App.css";
 import React, { useState, useEffect, createContext } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import PageHome from "./component/pageHome";
 import PageProfile from "./component/pageProfile";
 import Page404 from "./component/page404";
+import CompNavigationBar from "./component/compNavigationBar";
 
 export const ContextObject = createContext();
 function App() {
   const [stateArray, set_stateArray] = useState([]);
   const [stateNewFriend, set_stateNewFriend] = useState(null);
+  const [stateToken, set_stateToken] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     if (stateNewFriend) {
@@ -18,19 +21,30 @@ function App() {
     }
   }, [stateNewFriend]);
 
+  useEffect(() => {
+    if (stateToken) {
+      history.push("/profile");
+    }
+  }, [stateToken]);
+
   return (
     <div className="App">
-      <header>
-        <h1>User Authentication With Token</h1>
-      </header>
       <ContextObject.Provider
         value={{
           stateArray,
           set_stateArray,
           stateNewFriend,
           set_stateNewFriend,
+          stateToken,
+          set_stateToken,
         }}
       >
+        <header>
+          <h1>User Authentication With Token</h1>
+          <p>stateToken = {stateToken !== "" ? "(has token)" : "null"}</p>
+          <CompNavigationBar />
+        </header>
+
         <Switch>
           <Route exact path="/">
             <PageHome />

@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import { link } from "react-router-dom";
 import { ContextObject } from "../App";
+import cb_serviceLogin from "../component/serviceLogin";
 
 const Container = styled.div`
   border: 1px solid black;
@@ -15,7 +14,8 @@ const CompFormLogin = (props) => {
     password: "school",
   };
   const [stateForm, set_stateForm] = useState(initialState);
-  const { set_stateNewFriend } = useContext(ContextObject);
+  const [stateError, set_stateError] = useState(null);
+  const { set_stateToken } = useContext(ContextObject);
 
   const cb_onChange = (event) => {
     set_stateForm({ ...stateForm, [event.target.name]: event.target.value });
@@ -23,8 +23,15 @@ const CompFormLogin = (props) => {
 
   const cb_onSubmit = (event) => {
     event.preventDefault();
-    set_stateNewFriend(stateForm);
     set_stateForm(initialState);
+    const promise = cb_serviceLogin(stateForm);
+    promise
+      .then((res) => {
+        set_stateToken(res.data.payload);
+      })
+      .catch((error) => {
+        set_stateError(error);
+      });
   };
 
   return (
@@ -53,6 +60,7 @@ const CompFormLogin = (props) => {
             onChange={cb_onChange}
           />
         </label>
+        {stateError ? <p>{JSON.stringify(stateError)}</p> : null}
         <button>Login</button>
       </form>
     </Container>
