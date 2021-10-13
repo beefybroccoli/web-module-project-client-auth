@@ -19,4 +19,4 @@ yarn-error.log*
 
 .history
 
-./server/node_modules
+app-friends/node_modules/
