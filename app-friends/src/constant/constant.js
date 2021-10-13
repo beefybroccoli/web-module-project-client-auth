@@ -1,11 +1,26 @@
-export const API_URL = "http://localhost:5000";
+const API_URL = "http://localhost:5000";
+//[POST] to `/api/login`
+export const API_URL_POST_Login = API_URL + "/api/login";
+//[POST] to `/api/logout`
+export const API_URL_POST_Logout = API_URL + "/api/logout";
+//[GET] to `/api/friends`
+export const API_URL_GET_Friends = API_URL + "/api/friends";
+//[GET] to `/api/friends/123`
+export const API_URL_GET_Friend = API_URL + "/api/friends/";
+//[POST] to `/api/friends`
+export const API_URL_POST_Add_Friend = API_URL + "/api/friends";
+//if (username === 'lambda' && password === 'school') {
+export const userName = "lambda";
+export const password = "school";
 
 /*
 * If you'd like, you can create multiple "view" components for your routes. You could have a component who's sole purpose is 
-.....to render the login form
-.....one for a form for updating a user
-.....another component who's sole purpose is for creating users
-..... another component who's sole purpose is to delete a user.
+.....(public) to render the login form
+.....(protected) one for a form for updating a user
+.....(protected) another component who's sole purpose is for creating users
+.....(protected) another component who's sole purpose is to delete a user.
+
+You will however need an authentication header on all the calls except the login call.
 */
 
 /*
@@ -15,11 +30,15 @@ export const API_URL = "http://localhost:5000";
 * Once your server is up and running, the URL you'll be able to hit from within your app is `http://localhost:5000`. You will however need an authentication header on all the calls except the login call.
 * Take a look at the endpoints that our API has to offer in `server.js`.
 
-  * **[POST]** * to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'lambda', password: 'school' }`
-  * **[POST]** * to `/api/logout`: removes a token from active use. Returns the inactive token. 
-  * **[GET]** to `/api/friends`: returns the list of friends.
-  * **[GET]** to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
-  * **[POST]** * to `/api/friends`: Adds in a new friend.
+* [POST] to `/api/login`: returns a token to be added to the header of all other requests. Pass in the following credentials as the `body` of the request: `{ username: 'lambda', password: 'school' }`
+
+* [POST] to `/api/logout`: removes a token from active use. Returns the inactive token. 
+
+* [GET] to `/api/friends`: returns the list of friends.
+
+* [GET] to `/api/friends/123`: returns the friend with the id passed as part of the URL (123 in example).
+
+* [POST] to `/api/friends`: Adds in a new friend.
 
 */
 
