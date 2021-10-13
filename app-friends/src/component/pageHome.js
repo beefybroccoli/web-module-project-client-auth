@@ -20,8 +20,8 @@ const PageHome = (props) => {
       <h2>PageHome.js</h2>
       <main>
         <CompFormLogin />
-        <CompFormAdd />
-        <PageProfile />
+        {/* <CompFormAdd /> */}
+        {/* <PageProfile /> */}
       </main>
     </Container>
   );
