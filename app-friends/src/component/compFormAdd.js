@@ -4,12 +4,12 @@ import axios from "axios";
 import { link } from "react-router-dom";
 import { ContextObject } from "../App";
 
-const Constainer = styled.div`
+const Container = styled.div`
   border: 1px solid black;
   margin: 5px;
   padding: 5px;
 `;
-const CompForm = (props) => {
+const CompFormAdd = (props) => {
   const initialState = {
     id: Date.now(),
     name: "sam",
@@ -31,7 +31,7 @@ const CompForm = (props) => {
   };
 
   return (
-    <Constainer>
+    <Container>
       <h2>CompForm.js</h2>
       <form onSubmit={cb_onSubmit}>
         <label>
@@ -82,8 +82,8 @@ const CompForm = (props) => {
         </label>
         <button>Submit</button>
       </form>
-    </Constainer>
+    </Container>
   );
 };
 
-export default CompForm;
+export default CompFormAdd;

@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { link } from "react-router-dom";
-import CompForm from "./compFormAdd";
+import CompFormAdd from "./compFormAdd";
 import { ContextObject } from "../App";
 
-const Constainer = styled.div`
+const Container = styled.div`
   border: 1px solid black;
   margin: 5px;
   padding: 5px;
@@ -14,7 +14,7 @@ const CompDisplayPrivateData = (props) => {
   const { stateArray, set_stateArray, stateNewFriend, set_stateNewFriend } =
     useContext(ContextObject);
   return (
-    <Constainer>
+    <Container>
       <h3>CompDisplayPrivateData.js</h3>
       <p>props.stateArray = {stateArray.length}</p>
       <p>
@@ -24,7 +24,7 @@ const CompDisplayPrivateData = (props) => {
       {stateArray.map((each) => {
         return <p>{JSON.stringify(each)}</p>;
       })}
-    </Constainer>
+    </Container>
   );
 };
 

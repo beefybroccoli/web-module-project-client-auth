@@ -4,7 +4,7 @@ import axios from "axios";
 import { link } from "react-router-dom";
 import { ContextObject } from "../App";
 
-const Constainer = styled.div`
+const Container = styled.div`
   border: 1px solid black;
   margin: 5px;
   padding: 5px;
@@ -28,7 +28,7 @@ const CompFormLogin = (props) => {
   };
 
   return (
-    <Constainer>
+    <Container>
       <h2>CompForm.js</h2>
       <form onSubmit={cb_onSubmit}>
         <label>
@@ -55,7 +55,7 @@ const CompFormLogin = (props) => {
         </label>
         <button>Login</button>
       </form>
-    </Constainer>
+    </Container>
   );
 };
 

@@ -6,7 +6,7 @@ import CompForm from "./compFormAdd";
 import { ContextObject } from "../App";
 import CompDisplayPrivateData from "./compDisplayPrivateData";
 
-const Constainer = styled.div`
+const Container = styled.div`
   border: 1px solid black;
   margin: 5px;
   padding: 5px;
@@ -15,10 +15,10 @@ const PageProfile = (props) => {
   const { stateArray, set_stateArray, stateNewFriend, set_stateNewFriend } =
     useContext(ContextObject);
   return (
-    <Constainer>
+    <Container>
       <h2>PageProfile.js</h2>
       <CompDisplayPrivateData />
-    </Constainer>
+    </Container>
   );
 };
 
