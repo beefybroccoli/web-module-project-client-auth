@@ -9,6 +9,7 @@ export const ContextObject = createContext();
 function App() {
   const [stateArray, set_stateArray] = useState([]);
   const [stateNewFriend, set_stateNewFriend] = useState(null);
+  const [stateToken, set_stateToken] = useState("");
 
   useEffect(() => {
     if (stateNewFriend) {
@@ -22,6 +23,7 @@ function App() {
     <div className="App">
       <header>
         <h1>User Authentication With Token</h1>
+        <p>stateToken = {stateToken}</p>
       </header>
       <ContextObject.Provider
         value={{
@@ -29,6 +31,7 @@ function App() {
           set_stateArray,
           stateNewFriend,
           set_stateNewFriend,
+          set_stateToken,
         }}
       >
         <Switch>

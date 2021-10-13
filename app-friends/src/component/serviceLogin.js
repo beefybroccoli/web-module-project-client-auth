@@ -1,5 +1,5 @@
 import axios from "axios";
-import * as con from "../constant/constant";
+import { API_URL_POST_Login } from "../constant/constant";
 
 /**
  * if the call is successful
@@ -9,10 +9,15 @@ import * as con from "../constant/constant";
  * @param {*} credential = {username:text, password:text}
  */
 const cb_serviceLogin = (credential) => {
-  axios.post(con.API_URL_POST_Login, credential).then((res) => {
-    console.log("res");
-  });
+  console.log("serviceLogin.js - credential = ", credential);
+  console.log(
+    "serviceLogin.js - con.API_URL_POST_Login = ",
+    API_URL_POST_Login
+  );
+  return axios.post(API_URL_POST_Login, credential);
 };
+
+export default cb_serviceLogin;
 
 /*
     axios.post("http://localhost:5000/api/login", this.state.credentials)
