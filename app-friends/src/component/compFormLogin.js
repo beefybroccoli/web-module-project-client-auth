@@ -4,6 +4,7 @@ import axios from "axios";
 import { link } from "react-router-dom";
 import { ContextObject } from "../App";
 import cb_serviceLogin from "../component/serviceLogin";
+import { useHistory } from "react-router-dom";
 
 const Container = styled.div`
   border: 1px solid black;
@@ -17,6 +18,8 @@ const CompFormLogin = (props) => {
   };
   const [stateForm, set_stateForm] = useState(initialState);
   const [stateError, set_stateError] = useState(null);
+  const { set_stateToken } = useContext(ContextObject);
+  const history = useHistory();
 
   const cb_onChange = (event) => {
     set_stateForm({ ...stateForm, [event.target.name]: event.target.value });
@@ -30,7 +33,8 @@ const CompFormLogin = (props) => {
     promise
       .then((res) => {
         console.log("res.data.payload = ", res.data.payload);
-        props.set_stateToken(res.data.payload);
+        // props.set_stateToken(res.data.payload);
+        set_stateToken(res.data.payload);
       })
       .catch((error) => {
         set_stateError(error);

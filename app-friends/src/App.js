@@ -1,6 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect, createContext } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import PageHome from "./component/pageHome";
 import PageProfile from "./component/pageProfile";
 import Page404 from "./component/page404";
@@ -10,6 +10,7 @@ function App() {
   const [stateArray, set_stateArray] = useState([]);
   const [stateNewFriend, set_stateNewFriend] = useState(null);
   const [stateToken, set_stateToken] = useState("");
+  const history = useHistory();
 
   useEffect(() => {
     if (stateNewFriend) {
@@ -18,6 +19,12 @@ function App() {
       set_stateNewFriend(null);
     }
   }, [stateNewFriend]);
+
+  useEffect(() => {
+    if (stateToken) {
+      history.push("/profile");
+    }
+  }, [stateToken]);
 
   return (
     <div className="App">

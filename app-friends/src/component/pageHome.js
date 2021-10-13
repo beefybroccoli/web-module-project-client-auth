@@ -24,7 +24,7 @@ const PageHome = (props) => {
     <Container>
       <h2>PageHome.js</h2>
       <main>
-        <CompFormLogin set_stateToken={set_stateToken} />
+        <CompFormLogin />
         {/* <CompFormAdd /> */}
         {/* <PageProfile /> */}
       </main>

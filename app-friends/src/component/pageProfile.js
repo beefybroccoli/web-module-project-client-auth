@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { link } from "react-router-dom";
-import CompForm from "./compFormAdd";
 import { ContextObject } from "../App";
 import CompDisplayPrivateData from "./compDisplayPrivateData";
 
