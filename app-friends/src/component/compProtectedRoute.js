@@ -1,3 +1,4 @@
+import React from "react";
 import { useContext } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { ContextObject } from "../App";
@@ -6,7 +7,14 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
   const { stateToken } = useContext(ContextObject);
   console.log("ProtectedRoute, stateToken = ", stateToken);
 
-  return <Route>{true ? <Component /> : <Redirect to="/" />}</Route>;
+  return (
+    <Route
+      {...rest}
+      render={(props) =>
+        stateToken !== "" ? <Component {...props} /> : <Redirect to="/" />
+      }
+    />
+  ); //end return
 };
 
 export default ProtectedRoute;
