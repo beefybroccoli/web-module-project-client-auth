@@ -21,15 +21,14 @@ export default ProtectedRoute;
 
 /*
 why this block is not working?
-<Route
-      {...rest}
-      render={(props) => {
-        if (stateToken !== "") {
-          return <Component {...props} />;
-        } else {
-          return <Redirect to="/" />;
+<Route {...rest}>
+      {stateToken !== "" ? (
+        () => {
+          return <Component {...rest} />;
         }
-      }}
-    />
+      ) : (
+        <Redirect to="/" />
+      )}
+  </Route>
 
 */
