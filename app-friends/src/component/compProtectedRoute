@@ -6,10 +6,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
   const { stateToken } = useContext(ContextObject);
   console.log("ProtectedRoute, stateToken = ", stateToken);
 
-  return;
-  <Route {...rest}>
-    {stateToken !== "" ? <Component {...props} /> : <Redirect to="/" />}
-  </Route>;
+  return <Route>{true ? <Component /> : <Redirect to="/" />}</Route>;
 };
 
 export default ProtectedRoute;
