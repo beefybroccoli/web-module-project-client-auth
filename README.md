@@ -96,3 +96,18 @@ Topics:
   * In your FriendsList component, rendered with `<PrivateRoute />`, you will create a list of your friends that you get from the API.
   *  conditional render by role
 
+/*
+
+
+const PrivateRoute = ({component:Component, ...rest})=>{
+
+	if(localStorage.getItem("token") {
+		return <Route {...rest}> 
+				<Component {...props}/>
+			</Route>;
+	}else{
+		return <Redirect to="/login"/>;
+	
+	}
+}
+*/
