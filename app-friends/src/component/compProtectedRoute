@@ -1,0 +1,30 @@
+import { useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
+import { ContextObject } from "../App";
+
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+  const { stateToken } = useContext(ContextObject);
+  console.log("ProtectedRoute, stateToken = ", stateToken);
+
+  return;
+  <Route {...rest}>
+    {stateToken !== "" ? <Component {...props} /> : <Redirect to="/" />}
+  </Route>;
+};
+
+export default ProtectedRoute;
+
+/*
+why this block is not working?
+<Route
+      {...rest}
+      render={(props) => {
+        if (stateToken !== "") {
+          return <Component {...props} />;
+        } else {
+          return <Redirect to="/" />;
+        }
+      }}
+    />
+
+*/

@@ -5,6 +5,7 @@ import PageHome from "./component/pageHome";
 import PageProfile from "./component/pageProfile";
 import Page404 from "./component/page404";
 import CompNavigationBar from "./component/compNavigationBar";
+import ProtectedRoute from "./component/compProtectedRoute";
 
 export const ContextObject = createContext();
 function App() {
@@ -49,9 +50,12 @@ function App() {
           <Route exact path="/">
             <PageHome />
           </Route>
-          <Route path="/profile">
+          {/* <Route path="/profile">
             <PageProfile />
-          </Route>
+          </Route> */}
+          <ProtectedRoute path="/profile">
+            <PageProfile />
+          </ProtectedRoute>
           <Route>
             <Page404 />
           </Route>
